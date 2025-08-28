@@ -31,7 +31,7 @@ def greet(n: str) -> str:
         return "Please enter a naame."
     return f"Hello, {n}! Your script ran in the browser. 🐍"
 
-greet("${"${A1}".replace("\\", "\\\\").replace("`", "\`")}")
+greet("${"${name}".replace("\\", "\\\\").replace("`", "\`")}")
 `;
           const result = await pyodide.runPythonAsync(code);
           out.textContent = String(result);
