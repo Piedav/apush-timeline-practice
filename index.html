@@ -23,6 +23,10 @@
 
           // Collect inputs (edit these IDs to match your UI)
           const A1 = document.getElementById("A1").value.trim();
+          const B1 = document.getElementById("B1").value.trim();
+          const C1 = document.getElementById("C1").value.trim();
+          const D1 = document.getElementById("D1").value.trim();
+          const E1 = document.getElementById("E1").value.trim();
 
           // ---------- Your prewritten Python goes here ----------
           const code = `
@@ -32,6 +36,7 @@ def greet(n: str) -> str:
     return f"Hello, {n}! Your script ran in the browser. 🐍"
 
 greet("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}")
+greet("${B1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}")
 `;
           const result = await pyodide.runPythonAsync(code);
           out.textContent = String(result);
@@ -62,8 +67,16 @@ greet("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}")
 
     <div class="card">
       <label for="A1">A</label>
-      <input id="A1" placeholder="Ada Lovelace" />
-      <button onclick="runScript()">Run</button>
+      <input id="A1" placeholder="1, 2, 3, 4, or 5" />
+      <label for="B1">B</label>
+      <input id="B1" placeholder="1, 2, 3, 4, or 5" />
+      <label for="C1">C</label>
+      <input id="C1" placeholder="1, 2, 3, 4, or 5" />
+      <label for="D1">D</label>
+      <input id="D1" placeholder="1, 2, 3, 4, or 5" />
+      <label for="E1">E</label>
+      <input id="E1" placeholder="1, 2, 3, 4, or 5" />
+      <button onclick="runScript()">Check Answer</button>
       <div id="out" style="margin-top: .8rem;">Output will appear here…</div>
     </div>
 
