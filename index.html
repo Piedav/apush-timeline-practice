@@ -244,7 +244,7 @@ def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, f1: str, g1: str, h1: 
         score += 1
     return str(score) + "/10, reload the page to reshuffle"
 
-checkAns("${A3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${F3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${G3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${H3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${I3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${J2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${JSON.stringify(ansChoices3)})
+checkAns("${A3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${F3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${G3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${H3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${I3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${J3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${JSON.stringify(ansChoices3)})
 `;
           const result = await pyodide.runPythonAsync(code);
           out.textContent = String(result);
@@ -304,15 +304,15 @@ checkAns("${A3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B3.replace(/\\/
       <input id="D2" placeholder="1 to 10" /><br>
       <label for="E2">E</label>
       <input id="E2" placeholder="1 to 10" /><br>
-      <label for="F2">A</label>
+      <label for="F2">F</label>
       <input id="F2" placeholder="1 to 10" /><br>
-      <label for="G2">B</label>
+      <label for="G2">G</label>
       <input id="G2" placeholder="1 to 10" /><br>
-      <label for="H2">C</label>
+      <label for="H2">H</label>
       <input id="H2" placeholder="1 to 10" /><br>
-      <label for="I2">D</label>
+      <label for="I2">I</label>
       <input id="I2" placeholder="1 to 10" /><br>
-      <label for="J2">E</label>
+      <label for="J2">J</label>
       <input id="J2" placeholder="1 to 10" /><br>
       <button onclick="runScript2()">Check Answer</button>
       <div id="out2" style="margin-top: .8rem;">Output will appear here…</div><br>
@@ -328,19 +328,19 @@ checkAns("${A3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B3.replace(/\\/
       <input id="D3" placeholder="1 to 10" /><br>
       <label for="E3">E</label>
       <input id="E3" placeholder="1 to 10" /><br>
-      <label for="F3">A</label>
+      <label for="F3">F</label>
       <input id="F3" placeholder="1 to 10" /><br>
-      <label for="G3">B</label>
+      <label for="G3">G</label>
       <input id="G3" placeholder="1 to 10" /><br>
-      <label for="H3">C</label>
+      <label for="H3">H</label>
       <input id="H3" placeholder="1 to 10" /><br>
-      <label for="I3">D</label>
+      <label for="I3">I</label>
       <input id="I3" placeholder="1 to 10" /><br>
-      <label for="J3">E</label>
+      <label for="J3">J</label>
       <input id="J3" placeholder="1 to 10" /><br>
       <button onclick="runScript3()">Check Answer</button>
       <div id="out3" style="margin-top: .8rem;">Output will appear here…</div><br>
-      <p> ver 1</p>
+      <p> ver 10</p>
     </div>
   </body>
 </html>
