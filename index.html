@@ -131,7 +131,7 @@ def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, ans) -> str:
         wrong.append("E")
     ret = str(score) + "/5, reload the page to reshuffle"
     if(len(wrong) != 0):
-        ret = ret + "\nQuestions missed: "
+        ret = ret + "\\nQuestions missed: "
         for i in range(len(wrong)):
             ret = ret + wrong[i] + " "
     return ret
@@ -218,7 +218,7 @@ def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, f1: str, g1: str, h1: 
         wrong.append("J")
     ret = str(score) + "/10, reload the page to reshuffle"
     if(len(wrong) != 0):
-        ret = ret + "\nQuestions missed: "
+        ret = ret + "\\nQuestions missed: "
         for i in range(len(wrong)):
             ret = ret + wrong[i] + " "
     return ret
@@ -307,7 +307,7 @@ def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, f1: str, g1: str, h1: 
         wrong.append("J")
     ret = str(score) + "/10, reload the page to reshuffle"
     if(len(wrong) != 0):
-        ret = ret + "\nQuestions missed: "
+        ret = ret + "\\nQuestions missed: "
         for i in range(len(wrong)):
             ret = ret + wrong[i] + " "
     return ret
@@ -412,7 +412,6 @@ checkAns("${A3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B3.replace(/\\/
       <input id="J3" placeholder="1 to 10" /><br>
       <button onclick="runScript3()">Check Answer</button>
       <div id="out3" style="margin-top: .8rem;">Output will appear here…</div><br>
-      <p> ver 1</p>
     </div>
   </body>
 </html>
