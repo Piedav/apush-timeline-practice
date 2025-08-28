@@ -107,34 +107,37 @@
 def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, ans) -> str:
     if(not (a1 and b1 and c1 and d1 and e1)):
         return "Please fill in all fields."
-    score = 0
-    wrong = []
-    if(ans[int(a1)-1] == "The coming of the Spanish"):
-        score += 1
-    else:
-        wrong.append("A")
-    if(ans[int(b1)-1] == "The coming of the French and English"):
-        score += 1
-    else:
-        wrong.append("B")
-    if(ans[int(c1)-1] == "The colonial period"):
-        score += 1
-    else:
-        wrong.append("C")
-    if(ans[int(d1)-1] == "The Revolutionary Era"):
-        score += 1
-    else:
-        wrong.append("D")
-    if(ans[int(e1)-1] == "The Critical Period: from Confederation to Constitution"):
-        score += 1
-    else:
-        wrong.append("E")
-    ret = str(score) + "/5, reload the page to reshuffle"
-    if(len(wrong) != 0):
-        ret = ret + "\\nQuestions missed: "
-        for i in range(len(wrong)):
-            ret = ret + wrong[i] + " "
-    return ret
+    try:
+      score = 0
+      wrong = []
+      if(ans[int(a1)-1] == "The coming of the Spanish"):
+          score += 1
+      else:
+          wrong.append("A")
+      if(ans[int(b1)-1] == "The coming of the French and English"):
+          score += 1
+      else:
+          wrong.append("B")
+      if(ans[int(c1)-1] == "The colonial period"):
+          score += 1
+      else:
+          wrong.append("C")
+      if(ans[int(d1)-1] == "The Revolutionary Era"):
+          score += 1
+      else:
+          wrong.append("D")
+      if(ans[int(e1)-1] == "The Critical Period: from Confederation to Constitution"):
+          score += 1
+      else:
+          wrong.append("E")
+      ret = str(score) + "/5, reload the page to reshuffle"
+      if(len(wrong) != 0):
+          ret = ret + "\\nQuestions missed: "
+          for i in range(len(wrong)):
+              ret = ret + wrong[i] + " "
+      return ret
+    except ValueErorr:
+        return "Invalid input (make sure they are all numbers)"
 
 checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${JSON.stringify(ansChoices)})
 `;
@@ -347,8 +350,8 @@ checkAns("${A3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B3.replace(/\\/
     </style>
   </head>
   <body>
-    <h1>APUSH Timeline Test Practice</h1>
-    <p>made by David Mao :D 8/27/2025</p>
+    <h1>Practice for the APUSH timeline test :D</h1>
+    <p>made by David Mao</p>
     <div class="card">
       <img src="timeline1.png" alt="first timeline" width="500"><br>
       <div id="choices"></div>
@@ -412,6 +415,7 @@ checkAns("${A3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B3.replace(/\\/
       <input id="J3" placeholder="1 to 10" /><br>
       <button onclick="runScript3()">Check Answer</button>
       <div id="out3" style="margin-top: .8rem;">Output will appear here…</div><br>
+      <p> ver 1</p>
     </div>
   </body>
 </html>
