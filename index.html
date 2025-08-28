@@ -56,13 +56,15 @@
 
           // ---------- Your prewritten Python goes here ----------
           const code = `
-def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str) -> str:
+def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, ans) -> str:
     if(not (a1 and b1 and c1 and d1 and e1)):
         return "Please fill in all fields."
-    score = int(a1 == "4") + int(b1 == "1") + int(c1 == "5") + int(d1 == "3") + int(e1 == "2")
+    score = 0
+    if(ans[int(a1)] == "The coming of the Spanish"):
+        score = 5
     return str(score) + "/5"
 
-checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}")
+checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${ansChoices})
 `;
           const result = await pyodide.runPythonAsync(code);
           out.textContent = String(result);
