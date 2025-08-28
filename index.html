@@ -31,7 +31,7 @@
           // ---------- Your prewritten Python goes here ----------
           const code = `
 def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str) -> str:
-    if(not(a1 || b1 || c1 || d1 || e1)):
+    if(not (a1 or b1 or c1 or d1 or e1)):
         return "Please fill in all fields."
     score = a1 == "4" + b1 == "1" + c1 == "5" + d1 == "3" + e1 == "2"
     return str(score) + "/5"
