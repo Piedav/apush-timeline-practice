@@ -33,7 +33,7 @@
         var i = 1;
         shuffled.forEach(choice => {
           const p = document.createElement("p");
-          p.textContent = i.toString+". " + choice;
+          p.textContent = i.toString() +". " + choice;
           container.appendChild(p);
           i++;
         });
@@ -122,7 +122,7 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
       <label for="E1">E</label>
       <input id="E1" placeholder="1, 2, 3, 4, or 5" /><br>
       <button onclick="runScript()">Check Answer</button>
-      <div id="out" style="margin-top: .8rem;">Output will appear here…</div>
+      <div id="out" style="margin-top: .8rem;">Output will appear here…2</div>
     </div>
   </body>
 </html>
