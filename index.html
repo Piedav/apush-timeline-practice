@@ -8,6 +8,26 @@
       import { loadPyodide } from "https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.mjs";
       let pyodideReady = loadPyodide();
 
+      function shuffle(array) {
+        const a = array.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+      function renderChoices(shuffled) {
+        
+        
+
+        const container = document.getElementById("choices");
+        container.innerHTML = ""; // clear
+        shuffled.forEach(choice => {
+          const p = document.createElement("p");
+          p.textContent = choice;
+          container.appendChild(p);
+        });
+      }
       async function runScript() {
         const out = document.getElementById("out");
         out.textContent = "Running…";
@@ -27,11 +47,18 @@
           const C1 = document.getElementById("C1").value.trim();
           const D1 = document.getElementById("D1").value.trim();
           const E1 = document.getElementById("E1").value.trim();
+          const ansChoices = shuffle([
+            "1. The coming of the French and English",
+            "2. The Critical Period: from Confederation to Constitution", 
+            "3. The Revolutionary Era",
+            "4. The coming of the Spanish",
+            "5. The colonial period"
+          ]);
 
           // ---------- Your prewritten Python goes here ----------
           const code = `
 def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str) -> str:
-    if(not (a1 or b1 or c1 or d1 or e1)):
+    if(not (a1 and b1 and c1 and d1 and e1)):
         return "Please fill in all fields."
     score = int(a1 == "4") + int(b1 == "1") + int(c1 == "5") + int(d1 == "3") + int(e1 == "2")
     return str(score) + "/5"
@@ -46,6 +73,9 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
       }
 
       window.runScript = runScript;
+      document.addEventListener("DOMContentLoaded", () => {
+        renderChoices(ansChoices);
+      });
     </script>
     <style>
       :root { color-scheme: light dark; }
@@ -67,11 +97,7 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
 
     <div class="card">
       <img src="timeline1.png" alt="first timeline" width="500"><br>
-      <p>1. The coming of the French and English </p>
-      <p>2. The Critical Period: from Confederation to Constitution</p>
-      <p>3. The Revolutionary Era</p>
-      <p>4. The coming of the Spanish</p>
-      <p>5. The colonial period</p><br>
+      <div id="choices"></div>
       <label for="A1">A</label>
       <input id="A1" placeholder="1, 2, 3, 4, or 5" /><br>
       <label for="B1">B</label>
