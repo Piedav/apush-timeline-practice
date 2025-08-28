@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Run My Python (Pyodide)</title>
+    <script type="module">
+      import { loadPyodide } from "https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.mjs";
+      let pyodideReady = loadPyodide();
+
+      async function runScript() {
+        const out = document.getElementById("out");
+        out.textContent = "Running…";
+        try {
+          const pyodide = await pyodideReady;
+
+          // If you need pure-Python packages from PyPI (no native code), you can micropip-install like this:
+          // await pyodide.loadPackage("micropip");
+          // await pyodide.runPythonAsync(`
+          //   import micropip
+          //   await micropip.install("some-pure-python-package")
+          // `);
+
+          // Collect inputs (edit these IDs to match your UI)
+          const A1 = document.getElementById("A1").value.trim();
+
+          // ---------- Your prewritten Python goes here ----------
+          const code = `
+def greet(n: str) -> str:
+    if not n:
+        return "Please enter a naame."
+    return f"Hello, {n}! Your script ran in the browser. 🐍"
+
+greet("${"${A1}".replace("\\", "\\\\").replace("`", "\`")}")
+`;
+          const result = await pyodide.runPythonAsync(code);
+          out.textContent = String(result);
+        } catch (e) {
+          out.textContent = "Error: " + e;
+        }
+      }
+
+      window.runScript = runScript;
+    </script>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif;
+             max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+      h1 { font-size: clamp(1.6rem, 2.5vw + 1rem, 2.2rem); margin-bottom: .25rem; }
+      p.lead { opacity: .8; margin-top: 0; }
+      .card { background: rgba(0,0,0,.03); padding: 1rem; border-radius: 12px; }
+      input, button, textarea { font: inherit; padding: .6rem .8rem; border-radius: 10px;
+                                border: 1px solid rgba(0,0,0,.15); }
+      button { cursor: pointer; }
+      #out { white-space: pre-wrap; min-height: 2.5rem; }
+      footer { margin-top: 2rem; opacity: .7; font-size: .9rem; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    </style>
+  </head>
+  <body>
+    <h1>Practice for the APUSH timeline test :D</h1>
+
+    <div class="card">
+      <label for="A1">A</label>
+      <input id="A1" placeholder="Ada Lovelace" />
+      <button onclick="runScript()">Run</button>
+      <div id="out" style="margin-top: .8rem;">Output will appear here…</div>
+    </div>
+
+    <footer>
+      <p><strong>Customize me:</strong> open <code>index.html</code> and edit the <code>code</code> string in the &lt;script&gt; to your prewritten Python.</p>
+    </footer>
+  </body>
+</html>
