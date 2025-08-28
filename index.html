@@ -165,23 +165,33 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
 
           // ---------- Your prewritten Python goes here ----------
           const code = `
-def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, ans) -> str:
-    if(not (a1 and b1 and c1 and d1 and e1)):
+def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, f1: str, g1: str, h1: str, i1: str, j1: str,ans) -> str:
+    if(not (a1 and b1 and c1 and d1 and e1 and f1 and g1 and h1 and i1 and j1)):
         return "Please fill in all fields."
     score = 0
-    if(ans[int(a1)-1] == "The coming of the Spanish"):
+    if(ans[int(a1)-1] == "Jeffersonian Republicanism"):
         score += 1
-    if(ans[int(b1)-1] == "The coming of the French and English"):
+    if(ans[int(b1)-1] == "Era of Good Feelings"):
         score += 1
-    if(ans[int(c1)-1] == "The colonial period"):
+    if(ans[int(c1)-1] == "Sectionalism"):
         score += 1
-    if(ans[int(d1)-1] == "The Revolutionary Era"):
+    if(ans[int(d1)-1] == "The Industrial Revolution"):
         score += 1
-    if(ans[int(e1)-1] == "The Critical Period: from Confederation to Constitution"):
+    if(ans[int(e1)-1] == "Era of the Common Man/Age of Jackson"):
         score += 1
-    return str(score) + "/5, reload the page to redo"
+    if(ans[int(f1)-1] == "Manifest Destiny"):
+        score += 1
+    if(ans[int(g1)-1] == "The Civil War"):
+        score += 1
+    if(ans[int(h1)-1] == "Reconstruction"):
+        score += 1
+    if(ans[int(i1)-1] == "The Gilded Age"):
+        score += 1
+    if(ans[int(j1)-1] == "The 2nd Industrial Revolution"):
+        score += 1
+    return str(score) + "/10, reload the page to redo"
 
-checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${JSON.stringify(ansChoices)})
+checkAns("${A2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${F2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${G2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${H2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${I2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${J2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${JSON.stringify(ansChoices)})
 `;
           const result = await pyodide.runPythonAsync(code);
           out.textContent = String(result);
@@ -256,7 +266,7 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
       <div id="out2" style="margin-top: .8rem;">Output will appear here…</div><br>
       <img src="timeline3.png" alt="first timeline" width="500"><br>
       <div id="choices3"></div>
-      <p> ver 3</p>
+      <p> ver 4</p>
     </div>
   </body>
 </html>
