@@ -101,6 +101,16 @@
           const C1 = document.getElementById("C1").value.trim();
           const D1 = document.getElementById("D1").value.trim();
           const E1 = document.getElementById("E1").value.trim();
+          const A2 = document.getElementById("A2").value.trim();
+          const B2 = document.getElementById("B2").value.trim();
+          const C2 = document.getElementById("C2").value.trim();
+          const D2 = document.getElementById("D2").value.trim();
+          const E2 = document.getElementById("E2").value.trim();
+          const F2 = document.getElementById("F2").value.trim();
+          const G2 = document.getElementById("G2").value.trim();
+          const H2 = document.getElementById("H2").value.trim();
+          const I2 = document.getElementById("I2").value.trim();
+          const J2 = document.getElementById("J2").value.trim();
 
           // ---------- Your prewritten Python goes here ----------
           const code = `
@@ -131,13 +141,9 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
 
       window.runScript = runScript;
       document.addEventListener("DOMContentLoaded", () => {
-        renderChoices(ansChoices);
-      });
-      document.addEventListener("DOMContentLoaded", () => {
-        renderChoices(ansChoices2);
-      });
-      document.addEventListener("DOMContentLoaded", () => {
-        renderChoices(ansChoices3);
+        renderChoices(ansChoices);   // writes into #choices
+        renderChoices2(ansChoices2); // writes into #choices2
+        renderChoices3(ansChoices3); // writes into #choices3
       });
     </script>
     <style>
@@ -174,8 +180,20 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
       <button onclick="runScript()">Check Answer</button>
       <div id="out" style="margin-top: .8rem;">Output will appear here…</div><br>
       <div id="choices2"></div>
+      <label for="A1">A</label>
+      <input id="A1" placeholder="1, 2, 3, 4, or 5" /><br>
+      <label for="B1">B</label>
+      <input id="B1" placeholder="1, 2, 3, 4, or 5" /><br>
+      <label for="C1">C</label>
+      <input id="C1" placeholder="1, 2, 3, 4, or 5" /><br>
+      <label for="D1">D</label>
+      <input id="D1" placeholder="1, 2, 3, 4, or 5" /><br>
+      <label for="E1">E</label>
+      <input id="E1" placeholder="1, 2, 3, 4, or 5" /><br>
+      <button onclick="runScript()">Check Answer</button>
+      <div id="out" style="margin-top: .8rem;">Output will appear here…</div><br>
       <div id="choices3"></div>
-      <p> ver 1</p>
+      <p> ver 2</p>
     </div>
   </body>
 </html>
