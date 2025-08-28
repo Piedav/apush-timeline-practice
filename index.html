@@ -30,13 +30,13 @@
 
           // ---------- Your prewritten Python goes here ----------
           const code = `
-def greet(n: str) -> str:
-    if not n:
-        return "Please enter a naame."
-    return f"Hello, {n}! Your script ran in the browser. 🐍"
+def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str) -> str:
+    if(not(a1 || b1 || c1 || d1 || e1)):
+        return "Please fill in all fields."
+    score = a1 == "4" + b1 == "1" + c1 == "5" + d1 == "3" + e1 == "2"
+    return str(score) + "/5"
 
-greet("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}")
-greet("${B1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}")
+checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}")
 `;
           const result = await pyodide.runPythonAsync(code);
           out.textContent = String(result);
