@@ -222,25 +222,25 @@ def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, f1: str, g1: str, h1: 
     if(not (a1 and b1 and c1 and d1 and e1 and f1 and g1 and h1 and i1 and j1)):
         return "Please fill in all fields."
     score = 0
-    if(ans[int(a1)-1] == "Jeffersonian Republicanism"):
+    if(ans[int(a1)-1] == "Age of Imperialism"):
         score += 1
-    if(ans[int(b1)-1] == "Era of Good Feelings"):
+    if(ans[int(b1)-1] == "The Progressive Era"):
         score += 1
-    if(ans[int(c1)-1] == "Sectionalism"):
+    if(ans[int(c1)-1] == "World War I"):
         score += 1
-    if(ans[int(d1)-1] == "The Industrial Revolution"):
+    if(ans[int(d1)-1] == "The Great Depression"):
         score += 1
-    if(ans[int(e1)-1] == "Era of the Common Man/Age of Jackson"):
+    if(ans[int(e1)-1] == "World War II"):
         score += 1
-    if(ans[int(f1)-1] == "Manifest Destiny"):
+    if(ans[int(f1)-1] == "The Cold War"):
         score += 1
-    if(ans[int(g1)-1] == "The Civil War"):
+    if(ans[int(g1)-1] == "The Vietnam Era"):
         score += 1
-    if(ans[int(h1)-1] == "Reconstruction"):
+    if(ans[int(h1)-1] == "Civil Rights Movement"):
         score += 1
-    if(ans[int(i1)-1] == "The Gilded Age"):
+    if(ans[int(i1)-1] == "Information Age"):
         score += 1
-    if(ans[int(j1)-1] == "The 2nd Industrial Revolution"):
+    if(ans[int(j1)-1] == "War on Terror"):
         score += 1
     return str(score) + "/10, reload the page to reshuffle"
 
@@ -318,7 +318,29 @@ checkAns("${A3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B3.replace(/\\/
       <div id="out2" style="margin-top: .8rem;">Output will appear here…</div><br>
       <img src="timeline3.png" alt="first timeline" width="500"><br>
       <div id="choices3"></div>
-      <p> ver 12390</p>
+      <label for="A3">A</label>
+      <input id="A3" placeholder="1 to 10" /><br>
+      <label for="B3">B</label>
+      <input id="B3" placeholder="1 to 10" /><br>
+      <label for="C3">C</label>
+      <input id="C3" placeholder="1 to 10" /><br>
+      <label for="D3">D</label>
+      <input id="D3" placeholder="1 to 10" /><br>
+      <label for="E3">E</label>
+      <input id="E3" placeholder="1 to 10" /><br>
+      <label for="F3">A</label>
+      <input id="F3" placeholder="1 to 10" /><br>
+      <label for="G3">B</label>
+      <input id="G3" placeholder="1 to 10" /><br>
+      <label for="H3">C</label>
+      <input id="H3" placeholder="1 to 10" /><br>
+      <label for="I3">D</label>
+      <input id="I3" placeholder="1 to 10" /><br>
+      <label for="J3">E</label>
+      <input id="J3" placeholder="1 to 10" /><br>
+      <button onclick="runScript3()">Check Answer</button>
+      <div id="out3" style="margin-top: .8rem;">Output will appear here…</div><br>
+      <p> ver 1</p>
     </div>
   </body>
 </html>
