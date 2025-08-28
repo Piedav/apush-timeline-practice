@@ -74,7 +74,7 @@ def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, ans) -> str:
         score += 1
     if(ans[int(e1)-1] == "The Critical Period: from Confederation to Constitution"):
         score += 1
-    return str(score) + "/5"
+    return str(score) + "/5, reload the page to redo"
 
 checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${JSON.stringify(ansChoices)})
 `;
@@ -122,7 +122,6 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
       <label for="E1">E</label>
       <input id="E1" placeholder="1, 2, 3, 4, or 5" /><br>
       <button onclick="runScript()">Check Answer</button>
-      <div id="out" style="margin-top: .8rem;">Output will appear here…2</div>
     </div>
   </body>
 </html>
