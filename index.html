@@ -131,9 +131,9 @@ def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, ans) -> str:
         wrong.append("E")
     ret = str(score) + "/5, reload the page to reshuffle"
     if(len(wrong) != 0):
-        ret += "\nQuestions missed: "
+        ret = ret + "\nQuestions missed: "
         for i in range(len(wrong)):
-            ret += wrong[i] + " "
+            ret = ret + wrong[i] + " "
     return ret
 
 checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${JSON.stringify(ansChoices)})
@@ -175,27 +175,53 @@ def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, f1: str, g1: str, h1: 
     if(not (a1 and b1 and c1 and d1 and e1 and f1 and g1 and h1 and i1 and j1)):
         return "Please fill in all fields."
     score = 0
+    wrong = []
     if(ans[int(a1)-1] == "Jeffersonian Republicanism"):
         score += 1
+    else:
+        wrong.append("A")
     if(ans[int(b1)-1] == "Era of Good Feelings"):
         score += 1
+    else:
+        wrong.append("B")
     if(ans[int(c1)-1] == "Sectionalism"):
         score += 1
+    else:
+        wrong.append("C")
     if(ans[int(d1)-1] == "The Industrial Revolution"):
         score += 1
+    else:
+        wrong.append("D")
     if(ans[int(e1)-1] == "Era of the Common Man/Age of Jackson"):
         score += 1
+    else:
+        wrong.append("E")
     if(ans[int(f1)-1] == "Manifest Destiny"):
         score += 1
+    else:
+        wrong.append("F")
     if(ans[int(g1)-1] == "The Civil War"):
         score += 1
+    else:
+        wrong.append("G")
     if(ans[int(h1)-1] == "Reconstruction"):
         score += 1
+    else:
+        wrong.append("H")
     if(ans[int(i1)-1] == "The Gilded Age"):
         score += 1
+    else:
+        wrong.append("I")
     if(ans[int(j1)-1] == "The 2nd Industrial Revolution"):
         score += 1
-    return str(score) + "/10, reload the page to reshuffle"
+    else:
+        wrong.append("J")
+    ret = str(score) + "/10, reload the page to reshuffle"
+    if(len(wrong) != 0):
+        ret = ret + "\nQuestions missed: "
+        for i in range(len(wrong)):
+            ret = ret + wrong[i] + " "
+    return ret
 
 checkAns("${A2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${F2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${G2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${H2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${I2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${J2.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${JSON.stringify(ansChoices2)})
 `;
@@ -238,27 +264,53 @@ def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, f1: str, g1: str, h1: 
     if(not (a1 and b1 and c1 and d1 and e1 and f1 and g1 and h1 and i1 and j1)):
         return "Please fill in all fields."
     score = 0
+    wrong = []
     if(ans[int(a1)-1] == "Age of Imperialism"):
         score += 1
+    else:
+        wrong.append("A")
     if(ans[int(b1)-1] == "The Progressive Era"):
         score += 1
+    else:
+        wrong.append("B")
     if(ans[int(c1)-1] == "World War I"):
         score += 1
+    else:
+        wrong.append("C")
     if(ans[int(d1)-1] == "The Great Depression"):
         score += 1
+    else:
+        wrong.append("D")
     if(ans[int(e1)-1] == "World War II"):
         score += 1
+    else:
+        wrong.append("E")
     if(ans[int(f1)-1] == "The Cold War"):
         score += 1
+    else:
+        wrong.append("F")
     if(ans[int(g1)-1] == "The Vietnam Era"):
         score += 1
+    else:
+        wrong.append("G")
     if(ans[int(h1)-1] == "Civil Rights Movement"):
         score += 1
+    else:
+        wrong.append("H")
     if(ans[int(i1)-1] == "Information Age"):
         score += 1
+    else:
+        wrong.append("I")
     if(ans[int(j1)-1] == "War on Terror"):
         score += 1
-    return str(score) + "/10, reload the page to reshuffle"
+    else:
+        wrong.append("J")
+    ret = str(score) + "/10, reload the page to reshuffle"
+    if(len(wrong) != 0):
+        ret = ret + "\nQuestions missed: "
+        for i in range(len(wrong)):
+            ret = ret + wrong[i] + " "
+    return ret
 
 checkAns("${A3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${F3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${G3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${H3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${I3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${J3.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${JSON.stringify(ansChoices3)})
 `;
