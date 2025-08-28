@@ -24,11 +24,55 @@
             "The coming of the Spanish",
             "The colonial period"
           ]);
-      function renderChoices(shuffled) {
-        
-        
-
+      const ansChoices2 = shuffle([
+            "Manifest Destiny",
+            "The Civil War", 
+            "Jeffersonian Republicanism",
+            "Reconstruction",
+            "The Gilded Age",
+            "The Industrial Revolution",
+            "The 2nd Industrial Revolution",
+            "Sectionalism",
+            "Era of Good Feelings",
+            "Era of the Common Man/Age of Jackson"
+          ]);
+      const ansChoices3 = shuffle([
+            "Information Age",
+            "The Progressive Era", 
+            "The Great Depression",
+            "Age of Imperialism",
+            "Civil Rights Movement",
+            "War on Terror",
+            "World War II",
+            "The Vietnam Era",
+            "World War I",
+            "The Cold War"
+          ]);
+      
+      function renderChoices(shuffled) {      
         const container = document.getElementById("choices");
+        container.innerHTML = ""; // clear
+        var i = 1;
+        shuffled.forEach(choice => {
+          const p = document.createElement("p");
+          p.textContent = i.toString() +". " + choice;
+          container.appendChild(p);
+          i++;
+        });
+      }
+      function renderChoices2(shuffled) {      
+        const container = document.getElementById("choices2");
+        container.innerHTML = ""; // clear
+        var i = 1;
+        shuffled.forEach(choice => {
+          const p = document.createElement("p");
+          p.textContent = i.toString() +". " + choice;
+          container.appendChild(p);
+          i++;
+        });
+      }
+      function renderChoices3(shuffled) {      
+        const container = document.getElementById("choices3");
         container.innerHTML = ""; // clear
         var i = 1;
         shuffled.forEach(choice => {
@@ -89,6 +133,12 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
       document.addEventListener("DOMContentLoaded", () => {
         renderChoices(ansChoices);
       });
+      document.addEventListener("DOMContentLoaded", () => {
+        renderChoices(ansChoices2);
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        renderChoices(ansChoices3);
+      });
     </script>
     <style>
       :root { color-scheme: light dark; }
@@ -122,6 +172,10 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
       <label for="E1">E</label>
       <input id="E1" placeholder="1, 2, 3, 4, or 5" /><br>
       <button onclick="runScript()">Check Answer</button>
+      <div id="out" style="margin-top: .8rem;">Output will appear here…</div><br>
+      <div id="choices2"></div>
+      <div id="choices3"></div>
+      <p> ver 1</p>
     </div>
   </body>
 </html>
