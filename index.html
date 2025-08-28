@@ -101,6 +101,47 @@
           const C1 = document.getElementById("C1").value.trim();
           const D1 = document.getElementById("D1").value.trim();
           const E1 = document.getElementById("E1").value.trim();
+
+          // ---------- Your prewritten Python goes here ----------
+          const code = `
+def checkAns(a1: str, b1: str, c1: str, d1: str, e1: str, ans) -> str:
+    if(not (a1 and b1 and c1 and d1 and e1)):
+        return "Please fill in all fields."
+    score = 0
+    if(ans[int(a1)-1] == "The coming of the Spanish"):
+        score += 1
+    if(ans[int(b1)-1] == "The coming of the French and English"):
+        score += 1
+    if(ans[int(c1)-1] == "The colonial period"):
+        score += 1
+    if(ans[int(d1)-1] == "The Revolutionary Era"):
+        score += 1
+    if(ans[int(e1)-1] == "The Critical Period: from Confederation to Constitution"):
+        score += 1
+    return str(score) + "/5, reload the page to redo"
+
+checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${C1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${D1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${E1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", ${JSON.stringify(ansChoices)})
+`;
+          const result = await pyodide.runPythonAsync(code);
+          out.textContent = String(result);
+        } catch (e) {
+          out.textContent = "Error: " + e;
+        }
+      }
+      async function runScript2() {
+        const out = document.getElementById("out2");
+        out.textContent = "Running…";
+        try {
+          const pyodide = await pyodideReady;
+
+          // If you need pure-Python packages from PyPI (no native code), you can micropip-install like this:
+          // await pyodide.loadPackage("micropip");
+          // await pyodide.runPythonAsync(`
+          //   import micropip
+          //   await micropip.install("some-pure-python-package")
+          // `);
+
+          // Collect inputs (edit these IDs to match your UI)
           const A2 = document.getElementById("A2").value.trim();
           const B2 = document.getElementById("B2").value.trim();
           const C2 = document.getElementById("C2").value.trim();
@@ -189,6 +230,7 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
       <input id="E1" placeholder="1 to 5" /><br>
       <button onclick="runScript()">Check Answer</button>
       <div id="out" style="margin-top: .8rem;">Output will appear here…</div><br>
+      <img src="timeline2.png" alt="first timeline" width="500"><br>
       <div id="choices2"></div>
       <label for="A2">A</label>
       <input id="A2" placeholder="1 to 10" /><br>
@@ -210,8 +252,11 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
       <input id="I2" placeholder="1 to 10" /><br>
       <label for="J2">E</label>
       <input id="J2" placeholder="1 to 10" /><br>
+      <button onclick="runScript2()">Check Answer</button>
+      <div id="out2" style="margin-top: .8rem;">Output will appear here…</div><br>
+      <img src="timeline3.png" alt="first timeline" width="500"><br>
       <div id="choices3"></div>
-      <p> ver 1</p>
+      <p> ver 3</p>
     </div>
   </body>
 </html>
