@@ -7,13 +7,7 @@
     <script type="module">
       import { loadPyodide } from "https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.mjs";
       let pyodideReady = loadPyodide();
-      const ansChoices = shuffle([
-            "1. The coming of the French and English",
-            "2. The Critical Period: from Confederation to Constitution", 
-            "3. The Revolutionary Era",
-            "4. The coming of the Spanish",
-            "5. The colonial period"
-          ]);
+
       function shuffle(array) {
         const a = array.slice();
         for (let i = a.length - 1; i > 0; i--) {
@@ -22,16 +16,26 @@
         }
         return a;
       }
+
+      const ansChoices = shuffle([
+            "The coming of the French and English",
+            "The Critical Period: from Confederation to Constitution", 
+            "The Revolutionary Era",
+            "The coming of the Spanish",
+            "The colonial period"
+          ]);
       function renderChoices(shuffled) {
         
         
 
         const container = document.getElementById("choices");
         container.innerHTML = ""; // clear
+        var i = 1;
         shuffled.forEach(choice => {
           const p = document.createElement("p");
-          p.textContent = choice;
+          p.textContent = i.toString+". " + choice;
           container.appendChild(p);
+          i++;
         });
       }
       async function runScript() {
@@ -118,7 +122,7 @@ checkAns("${A1.replace(/\\/g, "\\\\").replace(/`/g, "\\`")}", "${B1.replace(/\\/
       <label for="E1">E</label>
       <input id="E1" placeholder="1, 2, 3, 4, or 5" /><br>
       <button onclick="runScript()">Check Answer</button>
-      <div id="out" style="margin-top: .8rem;">Output will appear here…2</div>
+      <div id="out" style="margin-top: .8rem;">Output will appear here…</div>
     </div>
   </body>
 </html>
