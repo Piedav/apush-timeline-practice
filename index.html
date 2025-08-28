@@ -7,7 +7,13 @@
     <script type="module">
       import { loadPyodide } from "https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.mjs";
       let pyodideReady = loadPyodide();
-
+      const ansChoices = shuffle([
+            "1. The coming of the French and English",
+            "2. The Critical Period: from Confederation to Constitution", 
+            "3. The Revolutionary Era",
+            "4. The coming of the Spanish",
+            "5. The colonial period"
+          ]);
       function shuffle(array) {
         const a = array.slice();
         for (let i = a.length - 1; i > 0; i--) {
@@ -47,13 +53,6 @@
           const C1 = document.getElementById("C1").value.trim();
           const D1 = document.getElementById("D1").value.trim();
           const E1 = document.getElementById("E1").value.trim();
-          const ansChoices = shuffle([
-            "1. The coming of the French and English",
-            "2. The Critical Period: from Confederation to Constitution", 
-            "3. The Revolutionary Era",
-            "4. The coming of the Spanish",
-            "5. The colonial period"
-          ]);
 
           // ---------- Your prewritten Python goes here ----------
           const code = `
